@@ -43,37 +43,94 @@
             -webkit-touch-callout: none;
         }
         @keyframes bgShift {
-            0%, 100% { background-position: 0% 50%; }
-            25% { background-position: 100% 0%; }
-            50% { background-position: 100% 100%; }
-            75% { background-position: 0% 100%; }
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
         }
         .floating-decorations {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0; overflow: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
         .float-item {
             position: absolute;
-            font-size: 2.5rem; opacity: 0.25;
+            font-size: 2.5rem;
+            opacity: 0.25;
             animation: floatAround 18s linear infinite;
         }
-        .float-item:nth-child(1) { top: 8%; left: 10%; animation-delay: 0s; font-size: 2rem; }
-        .float-item:nth-child(2) { top: 15%; right: 12%; animation-delay: -4s; font-size: 2.8rem; }
-        .float-item:nth-child(3) { bottom: 20%; left: 8%; animation-delay: -8s; font-size: 2.2rem; }
-        .float-item:nth-child(4) { bottom: 12%; right: 10%; animation-delay: -12s; font-size: 3rem; }
-        .float-item:nth-child(5) { top: 45%; left: 5%; animation-delay: -6s; font-size: 1.8rem; }
-        .float-item:nth-child(6) { top: 40%; right: 6%; animation-delay: -10s; font-size: 2.4rem; }
+        .float-item:nth-child(1) {
+            top: 8%;
+            left: 10%;
+            animation-delay: 0s;
+            font-size: 2rem;
+        }
+        .float-item:nth-child(2) {
+            top: 15%;
+            right: 12%;
+            animation-delay: -4s;
+            font-size: 2.8rem;
+        }
+        .float-item:nth-child(3) {
+            bottom: 20%;
+            left: 8%;
+            animation-delay: -8s;
+            font-size: 2.2rem;
+        }
+        .float-item:nth-child(4) {
+            bottom: 12%;
+            right: 10%;
+            animation-delay: -12s;
+            font-size: 3rem;
+        }
+        .float-item:nth-child(5) {
+            top: 45%;
+            left: 5%;
+            animation-delay: -6s;
+            font-size: 1.8rem;
+        }
+        .float-item:nth-child(6) {
+            top: 40%;
+            right: 6%;
+            animation-delay: -10s;
+            font-size: 2.4rem;
+        }
         @keyframes floatAround {
-            0% { transform: translateY(0) rotate(0deg) scale(1); }
-            25% { transform: translateY(-30px) rotate(8deg) scale(1.1); }
-            50% { transform: translateY(-15px) rotate(-5deg) scale(0.95); }
-            75% { transform: translateY(-40px) rotate(3deg) scale(1.05); }
-            100% { transform: translateY(0) rotate(0deg) scale(1); }
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateY(-30px) rotate(8deg) scale(1.1);
+            }
+            50% {
+                transform: translateY(-15px) rotate(-5deg) scale(0.95);
+            }
+            75% {
+                transform: translateY(-40px) rotate(3deg) scale(1.05);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
         }
         .app-container {
-            position: relative; z-index: 1;
-            width: 100%; max-width: 580px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 580px;
             background: var(--card-bg);
             border-radius: 28px;
             box-shadow: var(--shadow-lg);
@@ -83,873 +140,1197 @@
         }
         .app-container::before {
             content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
             background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #ff6b6b);
             background-size: 200% 100%;
             animation: rainbowBar 3s linear infinite;
             border-radius: 28px 28px 0 0;
         }
         @keyframes rainbowBar {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
         }
         .header {
-            display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .header .title {
-            font-size: 1.6rem; font-weight: 800; color: var(--text);
-            display: flex; align-items: center; gap: 8px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .header .title .icon { font-size: 2rem; animation: bounceIcon 1.5s ease infinite; }
+        .header .title .icon {
+            font-size: 2rem;
+            animation: bounceIcon 1.5s ease infinite;
+        }
         @keyframes bounceIcon {
-            0%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-12px); }
-            50% { transform: translateY(0); }
-            70% { transform: translateY(-6px); }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-12px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            70% {
+                transform: translateY(-6px);
+            }
         }
         .stars-display {
-            display: flex; align-items: center; gap: 6px;
-            background: #fffbe6; padding: 8px 16px; border-radius: 25px;
-            font-weight: 700; font-size: 0.95rem; color: #e67700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #fffbe6;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #e67700;
             box-shadow: 0 2px 8px rgba(255, 152, 0, 0.15);
         }
-        .stars-display .star-icon { font-size: 1.3rem; animation: twinkle 2s ease infinite; }
-        .stars-display .star-icon:nth-child(2) { animation-delay: 0.5s; }
-        .stars-display .star-icon:nth-child(3) { animation-delay: 1s; }
+        .stars-display .star-icon {
+            font-size: 1.3rem;
+            animation: twinkle 2s ease infinite;
+        }
+        .stars-display .star-icon:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .stars-display .star-icon:nth-child(3) {
+            animation-delay: 1s;
+        }
         @keyframes twinkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.7); }
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.7);
+            }
         }
         .score-bar {
-            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-            margin-bottom: 16px; font-size: 0.9rem; color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
         .combo-badge {
             background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            color: #fff; padding: 5px 14px; border-radius: 20px;
-            font-weight: 700; font-size: 0.85rem;
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
             animation: pulseCombo 0.6s ease infinite;
             display: none;
         }
-        .combo-badge.active { display: inline-block; }
-        @keyframes pulseCombo {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+        .combo-badge.active {
+            display: inline-block;
         }
-        .lives-display { display: flex; gap: 3px; font-size: 1.3rem; }
-        .lives-display .heart { transition: all 0.3s; }
-        .lives-display .heart.lost { opacity: 0.25; transform: scale(0.7); filter: grayscale(1); }
-        .progress-wrap { margin-bottom: 20px; }
-        .progress-info { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-light); margin-bottom: 4px; }
-        .progress-bar { height: 10px; background: #e9ecef; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #4ecdc4, #44b8ab); border-radius: 10px; transition: width 0.5s; }
-        .game-area { text-align: center; min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+        @keyframes pulseCombo {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
+        }
+        .lives-display {
+            display: flex;
+            gap: 3px;
+            font-size: 1.3rem;
+        }
+        .lives-display .heart {
+            transition: all 0.3s;
+        }
+        .lives-display .heart.lost {
+            opacity: 0.25;
+            transform: scale(0.7);
+            filter: grayscale(1);
+        }
+        .progress-wrap {
+            margin-bottom: 20px;
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #44b8ab);
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+        .game-area {
+            text-align: center;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+        }
         .phoneme-display {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border: 3px dashed #dee2e6; border-radius: var(--radius);
-            padding: 22px 30px; font-family: var(--font-ipa);
-            font-size: 3.5rem; font-weight: 700; color: #2d3436;
-            letter-spacing: 2px; transition: all var(--transition);
-            cursor: pointer; position: relative; min-width: 140px;
+            border: 3px dashed #dee2e6;
+            border-radius: var(--radius);
+            padding: 22px 30px;
+            font-family: var(--font-ipa);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2d3436;
+            letter-spacing: 2px;
+            transition: all var(--transition);
+            cursor: pointer;
+            position: relative;
+            min-width: 140px;
         }
         .phoneme-display .listen-btn {
-            position: absolute; top: -14px; right: -14px;
-            width: 44px; height: 44px; border-radius: 50%;
-            background: #ff6b6b; color: #fff; border: none;
-            font-size: 1.4rem; cursor: pointer;
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
             box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
             transition: all var(--transition);
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 2;
+            -webkit-tap-highlight-color: transparent;
         }
-        .phoneme-display .listen-btn:hover { transform: scale(1.1); box-shadow: 0 6px 18px rgba(255, 107, 107, 0.55); }
-        .phoneme-display .listen-btn:active { transform: scale(0.9); }
+        .phoneme-display .listen-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 18px rgba(255, 107, 107, 0.55);
+        }
+        .phoneme-display .listen-btn:active {
+            transform: scale(0.9);
+        }
         .phoneme-display .listen-btn.playing {
             animation: pulseListen 0.5s ease infinite;
             background: #ff3b3b;
         }
         @keyframes pulseListen {
-            0%, 100% { box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.9), 0 4px 12px rgba(255, 107, 107, 0.6); }
+            0%,
+            100% {
+                box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 107, 107, 0.9), 0 4px 12px rgba(255, 107, 107, 0.6);
+            }
         }
-        .phoneme-hint { font-size: 0.85rem; color: var(--text-light); margin-top: 2px; }
-        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 420px; }
+        .phoneme-hint {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            max-width: 420px;
+        }
         @media (max-width: 420px) {
-            .options-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .phoneme-display { font-size: 2.8rem; padding: 16px 22px; min-width: 100px; }
-            .app-container { padding: 20px 12px 16px; border-radius: 22px; }
-            .header .title { font-size: 1.3rem; }
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .phoneme-display {
+                font-size: 2.8rem;
+                padding: 16px 22px;
+                min-width: 100px;
+            }
+            .app-container {
+                padding: 20px 12px 16px;
+                border-radius: 22px;
+            }
+            .header .title {
+                font-size: 1.3rem;
+            }
         }
         .option-card {
-            background: #fff; border: 3px solid #e9ecef;
-            border-radius: var(--radius-sm); padding: 14px 10px;
-            cursor: pointer; font-size: 1.15rem; font-weight: 600;
-            color: var(--text); transition: all var(--transition);
-            text-align: center; position: relative;
-            display: flex; align-items: center; justify-content: center;
-            gap: 8px; min-height: 55px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            background: #fff;
+            border: 3px solid #e9ecef;
+            border-radius: var(--radius-sm);
+            padding: 14px 10px;
+            cursor: pointer;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: all var(--transition);
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 55px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
         }
-        .option-card:hover { border-color: #b2bec3; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #fafafa; }
-        .option-card:active { transform: scale(0.95); }
+        .option-card:hover {
+            border-color: #b2bec3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: #fafafa;
+        }
+        .option-card:active {
+            transform: scale(0.95);
+        }
         .option-card .mini-speak {
-            background: none; border: none; cursor: pointer;
-            font-size: 1.2rem; padding: 4px; border-radius: 50%;
-            transition: all 0.2s; opacity: 0.6; flex-shrink: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 4px;
+            border-radius: 50%;
+            transition: all 0.2s;
+            opacity: 0.6;
+            flex-shrink: 0;
         }
-        .option-card .mini-speak:hover { opacity: 1; background: #f0f0f0; transform: scale(1.2); }
+        .option-card .mini-speak:hover {
+            opacity: 1;
+            background: #f0f0f0;
+            transform: scale(1.2);
+        }
         .option-card.correct {
-            border-color: #51cf66 !important; background: #ebfbee !important;
+            border-color: #51cf66 !important;
+            background: #ebfbee !important;
             animation: correctPop 0.5s ease;
-            box-shadow: 0 0 25px rgba(81,207,102,0.4) !important;
+            box-shadow: 0 0 25px rgba(81, 207, 102, 0.4) !important;
         }
         .option-card.wrong {
-            border-color: #ff6b6b !important; background: #fff5f5 !important;
+            border-color: #ff6b6b !important;
+            background: #fff5f5 !important;
             animation: shake 0.5s ease;
-            box-shadow: 0 0 20px rgba(255,107,107,0.35) !important;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.35) !important;
         }
-        .option-card.disabled { pointer-events: none; opacity: 0.7; }
+        .option-card.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
         @keyframes correctPop {
-            0% { transform: scale(1); }
-            40% { transform: scale(1.08); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(1.08);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20% { transform: translateX(-8px); }
-            40% { transform: translateX(8px); }
-            60% { transform: translateX(-5px); }
-            80% { transform: translateX(5px); }
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-8px);
+            }
+            40% {
+                transform: translateX(8px);
+            }
+            60% {
+                transform: translateX(-5px);
+            }
+            80% {
+                transform: translateX(5px);
+            }
         }
-        .feedback-msg { font-weight: 700; font-size: 1.1rem; min-height: 28px; transition: all 0.3s; }
-        .feedback-msg.correct-msg { color: #2b8a3e; }
-        .feedback-msg.wrong-msg { color: #c92a2a; }
+        .feedback-msg {
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-height: 28px;
+            transition: all 0.3s;
+        }
+        .feedback-msg.correct-msg {
+            color: #2b8a3e;
+        }
+        .feedback-msg.wrong-msg {
+            color: #c92a2a;
+        }
         .btn {
-            padding: 12px 28px; border-radius: 30px; font-weight: 700;
-            font-size: 1rem; cursor: pointer; border: none;
-            transition: all var(--transition); font-family: var(--font-main);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition);
+            font-family: var(--font-main);
             letter-spacing: 0.5px;
         }
-        .btn-primary { background: linear-gradient(135deg, #4ecdc4, #44b8ab); color: #fff; box-shadow: 0 4px 14px rgba(78,205,196,0.35); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(78,205,196,0.5); }
-        .btn-secondary { background: #fff; color: #4ecdc4; border: 2px solid #4ecdc4; }
-        .btn-secondary:hover { background: #e6faf8; }
-        .btn-accent { background: linear-gradient(135deg, #ffd93d, #ffc107); color: #5c3d00; box-shadow: 0 4px 14px rgba(255,193,7,0.35); font-size: 1.1rem; padding: 14px 36px; }
-        .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255,193,7,0.5); }
-        .btn:disabled { opacity: 0.5; pointer-events: none; }
-        .level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 10px; width: 100%; }
-        .level-btn {
-            aspect-ratio: 1; border-radius: var(--radius-sm);
-            border: 3px solid #e9ecef; background: #fff;
-            cursor: pointer; font-weight: 700; font-size: 1.4rem;
-            transition: all var(--transition);
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; gap: 2px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04); position: relative;
+        .btn-primary {
+            background: linear-gradient(135deg, #4ecdc4, #44b8ab);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(78, 205, 196, 0.35);
         }
-        .level-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-        .level-btn.unlocked { border-color: #4ecdc4; background: #f0fdf9; }
-        .level-btn.completed { border-color: #51cf66; background: #ebfbee; }
-        .level-btn.locked { opacity: 0.5; cursor: not-allowed; background: #f8f9fa; }
-        .level-btn .level-stars { font-size: 0.7rem; letter-spacing: 1px; }
-        .level-btn .lock-icon { font-size: 1.2rem; position: absolute; top: 6px; right: 8px; }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(78, 205, 196, 0.5);
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #4ecdc4;
+            border: 2px solid #4ecdc4;
+        }
+        .btn-secondary:hover {
+            background: #e6faf8;
+        }
+        .btn-accent {
+            background: linear-gradient(135deg, #ffd93d, #ffc107);
+            color: #5c3d00;
+            box-shadow: 0 4px 14px rgba(255, 193, 7, 0.35);
+            font-size: 1.1rem;
+            padding: 14px 36px;
+        }
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(255, 193, 7, 0.5);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+            gap: 10px;
+            width: 100%;
+        }
+        .level-btn {
+            aspect-ratio: 1;
+            border-radius: var(--radius-sm);
+            border: 3px solid #e9ecef;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.4rem;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+        .level-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .level-btn.unlocked {
+            border-color: #4ecdc4;
+            background: #f0fdf9;
+        }
+        .level-btn.completed {
+            border-color: #51cf66;
+            background: #ebfbee;
+        }
+        .level-btn.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f8f9fa;
+        }
+        .level-btn .level-stars {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+        .level-btn .lock-icon {
+            font-size: 1.2rem;
+            position: absolute;
+            top: 6px;
+            right: 8px;
+        }
         .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.55); z-index: 100;
-            display: flex; align-items: center; justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             animation: fadeIn 0.2s ease;
         }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .modal {
-            background: #fff; border-radius: var(--radius); padding: 28px 22px;
-            text-align: center; max-width: 420px; width: 90%;
-            box-shadow: var(--shadow-lg); animation: slideUp 0.3s ease;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .modal h2 { font-size: 1.8rem; margin-bottom: 10px; }
-        .modal .big-emoji { font-size: 4rem; animation: bounceIcon 1s ease infinite; }
-        .modal .star-result { font-size: 2.5rem; letter-spacing: 4px; margin: 10px 0; }
+        .modal {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 28px 22px;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .modal h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .modal .big-emoji {
+            font-size: 4rem;
+            animation: bounceIcon 1s ease infinite;
+        }
+        .modal .star-result {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            margin: 10px 0;
+        }
         .phoneme-chart {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-            gap: 6px; max-height: 300px; overflow-y: auto; padding: 8px; margin: 10px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 6px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 8px;
+            margin: 10px 0;
         }
         .phoneme-chip {
-            background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 8px;
-            padding: 6px 4px; cursor: pointer; font-family: var(--font-ipa);
-            font-size: 1rem; font-weight: 600; text-align: center;
-            transition: all 0.2s; color: #2d3436;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 6px 4px;
+            cursor: pointer;
+            font-family: var(--font-ipa);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+            color: #2d3436;
         }
-        .phoneme-chip:hover { background: #e6faf8; border-color: #4ecdc4; transform: scale(1.05); }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-        .hidden { display: none !important; }
-        .text-center { text-align: center; }
-        .mt-12 { margin-top: 12px; }
-        .mt-16 { margin-top: 16px; }
-        .gap-8 { gap: 8px; }
-        .flex-wrap { display: flex; flex-wrap: wrap; justify-content: center; }
+        .phoneme-chip:hover {
+            background: #e6faf8;
+            border-color: #4ecdc4;
+            transform: scale(1.05);
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mt-12 {
+            margin-top: 12px;
+        }
+        .mt-16 {
+            margin-top: 16px;
+        }
+        .gap-8 {
+            gap: 8px;
+        }
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
-<div class="floating-decorations">
-    <span class="float-item">📚</span>
-    <span class="float-item">🌟</span>
-    <span class="float-item">🎵</span>
-    <span class="float-item">🔤</span>
-    <span class="float-item">💡</span>
-    <span class="float-item">🎯</span>
-</div>
-
-<div class="app-container" id="appContainer">
-    <div class="header">
-        <div class="title"><span class="icon">🎯</span> 音标大冒险</div>
-        <div class="stars-display"><span class="star-icon">⭐</span><span id="totalStars">0</span> 颗星</div>
+    <div class="floating-decorations">
+        <span class="float-item">📚</span>
+        <span class="float-item">🌟</span>
+        <span class="float-item">🎵</span>
+        <span class="float-item">🔤</span>
+        <span class="float-item">💡</span>
+        <span class="float-item">🎯</span>
     </div>
-    <div class="score-bar" id="scoreBar">
-        <span>🏆 得分: <strong id="scoreDisplay">0</strong></span>
-        <span class="combo-badge" id="comboBadge">🔥 连击 x1</span>
-        <span style="margin-left:auto;">❤️ <span class="lives-display" id="livesDisplay"></span></span>
+
+    <div class="app-container" id="appContainer">
+        <div class="header">
+            <div class="title"><span class="icon">🎯</span> 音标大冒险</div>
+            <div class="stars-display"><span class="star-icon">⭐</span><span id="totalStars">0</span> 颗星</div>
+        </div>
+        <div class="score-bar" id="scoreBar">
+            <span>🏆 得分: <strong id="scoreDisplay">0</strong></span>
+            <span class="combo-badge" id="comboBadge">🔥 连击 x1</span>
+            <span style="margin-left:auto;">❤️ <span class="lives-display" id="livesDisplay"></span></span>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+            <div class="progress-info"><span id="progressLabel">关卡进度</span><span id="progressFraction">0/8</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%;"></div></div>
+        </div>
+        <div class="game-area" id="gameArea"></div>
+        <div class="text-center mt-16 flex-wrap gap-8" id="bottomActions">
+            <button class="btn btn-secondary" id="btnPhonemeChart">📖 音标表</button>
+            <button class="btn btn-secondary" id="btnBackToLevels">🏠 关卡选择</button>
+        </div>
     </div>
-    <div class="progress-wrap" id="progressWrap">
-        <div class="progress-info"><span id="progressLabel">关卡进度</span><span id="progressFraction">0/8</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width: 0%;"></div></div>
-    </div>
-    <div class="game-area" id="gameArea"></div>
-    <div class="text-center mt-16 flex-wrap gap-8" id="bottomActions">
-        <button class="btn btn-secondary" id="btnPhonemeChart">📖 音标表</button>
-        <button class="btn btn-secondary" id="btnBackToLevels">🏠 关卡选择</button>
-    </div>
-</div>
-<div class="modal-overlay hidden" id="modalOverlay"><div class="modal" id="modalContent"></div></div>
+    <div class="modal-overlay hidden" id="modalOverlay"><div class="modal" id="modalContent"></div></div>
 
-<script>
-    (function() {
-        // ========== 音标数据库 ==========
-        const phonemeData = {
-            'ɪ': { symbol: '/ɪ/', word: 'fish', altWords: ['ship','big','sit'], category: '短元音', color: '#ff7675' },
-            'e': { symbol: '/e/', word: 'bed', altWords: ['pen','red','get'], category: '短元音', color: '#fab1a0' },
-            'æ': { symbol: '/æ/', word: 'cat', altWords: ['hat','map','bag'], category: '短元音', color: '#fdcb6e' },
-            'ʌ': { symbol: '/ʌ/', word: 'cup', altWords: ['sun','run','bus'], category: '短元音', color: '#ffeaa7' },
-            'ɒ': { symbol: '/ɒ/', word: 'dog', altWords: ['hot','box','top'], category: '短元音', color: '#dfe6e9' },
-            'ʊ': { symbol: '/ʊ/', word: 'book', altWords: ['foot','good','put'], category: '短元音', color: '#b2bec3' },
-            'ə': { symbol: '/ə/', word: 'about', altWords: ['banana','doctor','sofa'], category: '短元音', color: '#81ecec' },
-            'iː': { symbol: '/iː/', word: 'sheep', altWords: ['tree','bee','sea'], category: '长元音', color: '#74b9ff' },
-            'ɑː': { symbol: '/ɑː/', word: 'car', altWords: ['star','far','park'], category: '长元音', color: '#a29bfe' },
-            'ɔː': { symbol: '/ɔː/', word: 'door', altWords: ['horse','four','ball'], category: '长元音', color: '#6c5ce7' },
-            'uː': { symbol: '/uː/', word: 'moon', altWords: ['food','blue','zoo'], category: '长元音', color: '#0984e3' },
-            'ɜː': { symbol: '/ɜː/', word: 'bird', altWords: ['nurse','girl','work'], category: '长元音', color: '#636e72' },
-            'eɪ': { symbol: '/eɪ/', word: 'cake', altWords: ['rain','day','make'], category: '双元音', color: '#fd79a8' },
-            'aɪ': { symbol: '/aɪ/', word: 'bike', altWords: ['rice','fly','time'], category: '双元音', color: '#e84393' },
-            'ɔɪ': { symbol: '/ɔɪ/', word: 'boy', altWords: ['toy','coin','oil'], category: '双元音', color: '#d63031' },
-            'aʊ': { symbol: '/aʊ/', word: 'cow', altWords: ['house','mouth','now'], category: '双元音', color: '#e17055' },
-            'əʊ': { symbol: '/əʊ/', word: 'boat', altWords: ['nose','go','home'], category: '双元音', color: '#00b894' },
-            'ɪə': { symbol: '/ɪə/', word: 'ear', altWords: ['here','near','beer'], category: '双元音', color: '#00cec9' },
-            'eə': { symbol: '/eə/', word: 'hair', altWords: ['chair','bear','air'], category: '双元音', color: '#fdcb6e' },
-            'ʊə': { symbol: '/ʊə/', word: 'tour', altWords: ['poor','sure','moor'], category: '双元音', color: '#b8a9c9' },
-            'p': { symbol: '/p/', word: 'pen', altWords: ['map','apple','stop'], category: '清辅音', color: '#55a3e0' },
-            't': { symbol: '/t/', word: 'tea', altWords: ['cat','butter','hot'], category: '清辅音', color: '#5f9ea0' },
-            'k': { symbol: '/k/', word: 'key', altWords: ['cat','black','cake'], category: '清辅音', color: '#708090' },
-            'f': { symbol: '/f/', word: 'fish', altWords: ['leaf','coffee','fun'], category: '清辅音', color: '#778899' },
-            'θ': { symbol: '/θ/', word: 'three', altWords: ['mouth','birthday','think'], category: '清辅音', color: '#a0a0a0' },
-            's': { symbol: '/s/', word: 'sun', altWords: ['bus','sister','sit'], category: '清辅音', color: '#b0b0b0' },
-            'ʃ': { symbol: '/ʃ/', word: 'ship', altWords: ['fish','ocean','she'], category: '清辅音', color: '#c0c0c0' },
-            'h': { symbol: '/h/', word: 'hat', altWords: ['house','behind','hot'], category: '清辅音', color: '#d0d0d0' },
-            'tʃ': { symbol: '/tʃ/', word: 'chair', altWords: ['watch','chicken','chip'], category: '清辅音', color: '#909090' },
-            'b': { symbol: '/b/', word: 'book', altWords: ['bag','rabbit','big'], category: '浊辅音', color: '#e77f67' },
-            'd': { symbol: '/d/', word: 'dog', altWords: ['bed','ladder','red'], category: '浊辅音', color: '#e15f41' },
-            'ɡ': { symbol: '/ɡ/', word: 'go', altWords: ['bag','bigger','good'], category: '浊辅音', color: '#cf6a87' },
-            'v': { symbol: '/v/', word: 'van', altWords: ['five','river','very'], category: '浊辅音', color: '#c44569' },
-            'ð': { symbol: '/ð/', word: 'this', altWords: ['mother','father','the'], category: '浊辅音', color: '#b83b5e' },
-            'z': { symbol: '/z/', word: 'zoo', altWords: ['nose','lazy','zip'], category: '浊辅音', color: '#a29bfe' },
-            'ʒ': { symbol: '/ʒ/', word: 'television', altWords: ['usual','measure','vision'], category: '浊辅音', color: '#6c5ce7' },
-            'dʒ': { symbol: '/dʒ/', word: 'juice', altWords: ['bridge','orange','jump'], category: '浊辅音', color: '#8e44ad' },
-            'm': { symbol: '/m/', word: 'man', altWords: ['home','summer','moon'], category: '鼻音边音', color: '#27ae60' },
-            'n': { symbol: '/n/', word: 'nose', altWords: ['sun','dinner','net'], category: '鼻音边音', color: '#2ecc71' },
-            'ŋ': { symbol: '/ŋ/', word: 'sing', altWords: ['king','ring','long'], category: '鼻音边音', color: '#1abc9c' },
-            'l': { symbol: '/l/', word: 'leg', altWords: ['ball','little','love'], category: '鼻音边音', color: '#16a085' },
-            'r': { symbol: '/r/', word: 'red', altWords: ['car','river','run'], category: '鼻音边音', color: '#f39c12' },
-            'w': { symbol: '/w/', word: 'water', altWords: ['window','away','wet'], category: '半元音', color: '#e67e22' },
-            'j': { symbol: '/j/', word: 'yes', altWords: ['you','yellow','yoga'], category: '半元音', color: '#d35400' },
-        };
-        const allPhonemeKeys = Object.keys(phonemeData);
+    <script>
+        (function() {
+            // ========== 音标数据库 ==========
+            const phonemeData = {
+                'ɪ': { symbol: '/ɪ/', word: 'fish', altWords: ['ship','big','sit'], category: '短元音', color: '#ff7675' },
+                'e': { symbol: '/e/', word: 'bed', altWords: ['pen','red','get'], category: '短元音', color: '#fab1a0' },
+                'æ': { symbol: '/æ/', word: 'cat', altWords: ['hat','map','bag'], category: '短元音', color: '#fdcb6e' },
+                'ʌ': { symbol: '/ʌ/', word: 'cup', altWords: ['sun','run','bus'], category: '短元音', color: '#ffeaa7' },
+                'ɒ': { symbol: '/ɒ/', word: 'dog', altWords: ['hot','box','top'], category: '短元音', color: '#dfe6e9' },
+                'ʊ': { symbol: '/ʊ/', word: 'book', altWords: ['foot','good','put'], category: '短元音', color: '#b2bec3' },
+                'ə': { symbol: '/ə/', word: 'about', altWords: ['banana','doctor','sofa'], category: '短元音', color: '#81ecec' },
+                'iː': { symbol: '/iː/', word: 'sheep', altWords: ['tree','bee','sea'], category: '长元音', color: '#74b9ff' },
+                'ɑː': { symbol: '/ɑː/', word: 'car', altWords: ['star','far','park'], category: '长元音', color: '#a29bfe' },
+                'ɔː': { symbol: '/ɔː/', word: 'door', altWords: ['horse','four','ball'], category: '长元音', color: '#6c5ce7' },
+                'uː': { symbol: '/uː/', word: 'moon', altWords: ['food','blue','zoo'], category: '长元音', color: '#0984e3' },
+                'ɜː': { symbol: '/ɜː/', word: 'bird', altWords: ['nurse','girl','work'], category: '长元音', color: '#636e72' },
+                'eɪ': { symbol: '/eɪ/', word: 'cake', altWords: ['rain','day','make'], category: '双元音', color: '#fd79a8' },
+                'aɪ': { symbol: '/aɪ/', word: 'bike', altWords: ['rice','fly','time'], category: '双元音', color: '#e84393' },
+                'ɔɪ': { symbol: '/ɔɪ/', word: 'boy', altWords: ['toy','coin','oil'], category: '双元音', color: '#d63031' },
+                'aʊ': { symbol: '/aʊ/', word: 'cow', altWords: ['house','mouth','now'], category: '双元音', color: '#e17055' },
+                'əʊ': { symbol: '/əʊ/', word: 'boat', altWords: ['nose','go','home'], category: '双元音', color: '#00b894' },
+                'ɪə': { symbol: '/ɪə/', word: 'ear', altWords: ['here','near','beer'], category: '双元音', color: '#00cec9' },
+                'eə': { symbol: '/eə/', word: 'hair', altWords: ['chair','bear','air'], category: '双元音', color: '#fdcb6e' },
+                'ʊə': { symbol: '/ʊə/', word: 'tour', altWords: ['poor','sure','moor'], category: '双元音', color: '#b8a9c9' },
+                'p': { symbol: '/p/', word: 'pen', altWords: ['map','apple','stop'], category: '清辅音', color: '#55a3e0' },
+                't': { symbol: '/t/', word: 'tea', altWords: ['cat','butter','hot'], category: '清辅音', color: '#5f9ea0' },
+                'k': { symbol: '/k/', word: 'key', altWords: ['cat','black','cake'], category: '清辅音', color: '#708090' },
+                'f': { symbol: '/f/', word: 'fish', altWords: ['leaf','coffee','fun'], category: '清辅音', color: '#778899' },
+                'θ': { symbol: '/θ/', word: 'three', altWords: ['mouth','birthday','think'], category: '清辅音', color: '#a0a0a0' },
+                's': { symbol: '/s/', word: 'sun', altWords: ['bus','sister','sit'], category: '清辅音', color: '#b0b0b0' },
+                'ʃ': { symbol: '/ʃ/', word: 'ship', altWords: ['fish','ocean','she'], category: '清辅音', color: '#c0c0c0' },
+                'h': { symbol: '/h/', word: 'hat', altWords: ['house','behind','hot'], category: '清辅音', color: '#d0d0d0' },
+                'tʃ': { symbol: '/tʃ/', word: 'chair', altWords: ['watch','chicken','chip'], category: '清辅音', color: '#909090' },
+                'b': { symbol: '/b/', word: 'book', altWords: ['bag','rabbit','big'], category: '浊辅音', color: '#e77f67' },
+                'd': { symbol: '/d/', word: 'dog', altWords: ['bed','ladder','red'], category: '浊辅音', color: '#e15f41' },
+                'ɡ': { symbol: '/ɡ/', word: 'go', altWords: ['bag','bigger','good'], category: '浊辅音', color: '#cf6a87' },
+                'v': { symbol: '/v/', word: 'van', altWords: ['five','river','very'], category: '浊辅音', color: '#c44569' },
+                'ð': { symbol: '/ð/', word: 'this', altWords: ['mother','father','the'], category: '浊辅音', color: '#b83b5e' },
+                'z': { symbol: '/z/', word: 'zoo', altWords: ['nose','lazy','zip'], category: '浊辅音', color: '#a29bfe' },
+                'ʒ': { symbol: '/ʒ/', word: 'television', altWords: ['usual','measure','vision'], category: '浊辅音', color: '#6c5ce7' },
+                'dʒ': { symbol: '/dʒ/', word: 'juice', altWords: ['bridge','orange','jump'], category: '浊辅音', color: '#8e44ad' },
+                'm': { symbol: '/m/', word: 'man', altWords: ['home','summer','moon'], category: '鼻音边音', color: '#27ae60' },
+                'n': { symbol: '/n/', word: 'nose', altWords: ['sun','dinner','net'], category: '鼻音边音', color: '#2ecc71' },
+                'ŋ': { symbol: '/ŋ/', word: 'sing', altWords: ['king','ring','long'], category: '鼻音边音', color: '#1abc9c' },
+                'l': { symbol: '/l/', word: 'leg', altWords: ['ball','little','love'], category: '鼻音边音', color: '#16a085' },
+                'r': { symbol: '/r/', word: 'red', altWords: ['car','river','run'], category: '鼻音边音', color: '#f39c12' },
+                'w': { symbol: '/w/', word: 'water', altWords: ['window','away','wet'], category: '半元音', color: '#e67e22' },
+                'j': { symbol: '/j/', word: 'yes', altWords: ['you','yellow','yoga'], category: '半元音', color: '#d35400' },
+            };
 
-        const levelDefinitions = [
-            { id:1, name:'短元音入门', icon:'🔤', keys:['ɪ','e','æ','ʌ','ɒ','ʊ','ə'], questionsPerRound:7, passPercent:0.7 },
-            { id:2, name:'长元音挑战', icon:'📏', keys:['iː','ɑː','ɔː','uː','ɜː'], questionsPerRound:5, passPercent:0.7 },
-            { id:3, name:'双元音冒险', icon:'🔀', keys:['eɪ','aɪ','ɔɪ','aʊ','əʊ','ɪə','eə','ʊə'], questionsPerRound:8, passPercent:0.65 },
-            { id:4, name:'清辅音特训', icon:'💨', keys:['p','t','k','f','θ','s','ʃ','h','tʃ'], questionsPerRound:8, passPercent:0.7 },
-            { id:5, name:'浊辅音特训', icon:'📢', keys:['b','d','ɡ','v','ð','z','ʒ','dʒ'], questionsPerRound:8, passPercent:0.7 },
-            { id:6, name:'鼻音边音半元音', icon:'👃', keys:['m','n','ŋ','l','r','w','j'], questionsPerRound:7, passPercent:0.7 },
-            { id:7, name:'终极综合挑战', icon:'👑', keys:allPhonemeKeys, questionsPerRound:12, passPercent:0.6 },
-        ];
+            // 音标符号 → 近似朗读文本（用于发音标本身的音）
+            const ipaPronounceMap = {
+                'ɪ': 'ih', 'e': 'eh', 'æ': 'a', 'ʌ': 'uh', 'ɒ': 'o', 'ʊ': 'oo', 'ə': 'uh',
+                'iː': 'ee', 'ɑː': 'ah', 'ɔː': 'aw', 'uː': 'oo', 'ɜː': 'er',
+                'eɪ': 'ay', 'aɪ': 'eye', 'ɔɪ': 'oy', 'aʊ': 'ow', 'əʊ': 'oh',
+                'ɪə': 'ear', 'eə': 'air', 'ʊə': 'ure',
+                'p': 'p', 't': 't', 'k': 'k', 'f': 'f', 'θ': 'th', 's': 's', 'ʃ': 'sh', 'h': 'h', 'tʃ': 'ch',
+                'b': 'b', 'd': 'd', 'ɡ': 'g', 'v': 'v', 'ð': 'th', 'z': 'z', 'ʒ': 'zh', 'dʒ': 'j',
+                'm': 'm', 'n': 'n', 'ŋ': 'ng', 'l': 'l', 'r': 'r', 'w': 'w', 'j': 'y'
+            };
 
-        // ========== 游戏状态 ==========
-        const state = {
-            currentView: 'levels',
-            currentLevelId: null,
-            currentQuestionIndex: 0,
-            questions: [],
-            score: 0,
-            combo: 0,
-            maxCombo: 0,
-            lives: 3,
-            totalStars: 0,
-            levelProgress: {},
-            isAnswerLocked: false,
-        };
+            const allPhonemeKeys = Object.keys(phonemeData);
 
-        // ========== 发音系统（有道TTS + Web Speech 回退）==========
-        let _ttsAudio = null;
-        let _speechSynth = window.speechSynthesis;
-        let _currentUtterance = null;
-        let _speechKeepAlive = null;
+            const levelDefinitions = [
+                { id:1, name:'短元音入门', icon:'🔤', keys:['ɪ','e','æ','ʌ','ɒ','ʊ','ə'], questionsPerRound:7, passPercent:0.7 },
+                { id:2, name:'长元音挑战', icon:'📏', keys:['iː','ɑː','ɔː','uː','ɜː'], questionsPerRound:5, passPercent:0.7 },
+                { id:3, name:'双元音冒险', icon:'🔀', keys:['eɪ','aɪ','ɔɪ','aʊ','əʊ','ɪə','eə','ʊə'], questionsPerRound:8, passPercent:0.65 },
+                { id:4, name:'清辅音特训', icon:'💨', keys:['p','t','k','f','θ','s','ʃ','h','tʃ'], questionsPerRound:8, passPercent:0.7 },
+                { id:5, name:'浊辅音特训', icon:'📢', keys:['b','d','ɡ','v','ð','z','ʒ','dʒ'], questionsPerRound:8, passPercent:0.7 },
+                { id:6, name:'鼻音边音半元音', icon:'👃', keys:['m','n','ŋ','l','r','w','j'], questionsPerRound:7, passPercent:0.7 },
+                { id:7, name:'终极综合挑战', icon:'👑', keys:allPhonemeKeys, questionsPerRound:12, passPercent:0.6 },
+            ];
 
-        function getYoudaoUrl(text) {
-            return 'https://dict.youdao.com/dictvoice?audio=' + encodeURIComponent(text) + '&type=2';
-        }
+            // ========== 游戏状态 ==========
+            const state = {
+                currentView: 'levels',
+                currentLevelId: null,
+                currentQuestionIndex: 0,
+                questions: [],
+                score: 0,
+                combo: 0,
+                maxCombo: 0,
+                lives: 3,
+                totalStars: 0,
+                levelProgress: {},
+                isAnswerLocked: false,
+            };
 
-        // 使用有道发音，若1.8秒内未开始播放则回退
-        function speakWithYoudao(text, onStart, onEnd) {
-            if (!_ttsAudio) {
-                _ttsAudio = new Audio();
-                _ttsAudio.preload = 'auto';
+            // ========== 发音系统（有道TTS + Web Speech 回退）==========
+            let _ttsAudio = null;
+            let _speechSynth = window.speechSynthesis;
+            let _currentUtterance = null;
+            let _speechKeepAlive = null;
+
+            function getYoudaoUrl(text) {
+                return 'https://dict.youdao.com/dictvoice?audio=' + encodeURIComponent(text) + '&type=2';
             }
-            _ttsAudio.pause();
-            _ttsAudio.src = getYoudaoUrl(text);
-            if (onStart) onStart();
 
-            let resolved = false;
-            const fallbackTimer = setTimeout(() => {
-                if (!resolved) {
-                    resolved = true;
-                    speakFallback(text, onStart, onEnd);
+            function speakWithYoudao(text, onStart, onEnd) {
+                if (!_ttsAudio) {
+                    _ttsAudio = new Audio();
+                    _ttsAudio.preload = 'auto';
                 }
-            }, 1800);
-
-            _ttsAudio.onplay = () => {
-                if (!resolved) {
-                    clearTimeout(fallbackTimer);
-                    resolved = true;
-                    if (onStart) onStart();
-                }
-            };
-            _ttsAudio.onended = () => {
-                if (!resolved) {
-                    clearTimeout(fallbackTimer);
-                    resolved = true;
-                    if (onEnd) onEnd();
-                }
-            };
-            _ttsAudio.onerror = () => {
-                if (!resolved) {
-                    clearTimeout(fallbackTimer);
-                    resolved = true;
-                    speakFallback(text, onStart, onEnd);
-                }
-            };
-            _ttsAudio.play().catch(() => {
-                if (!resolved) {
-                    clearTimeout(fallbackTimer);
-                    resolved = true;
-                    speakFallback(text, onStart, onEnd);
-                }
-            });
-        }
-
-        function speakFallback(text, onStart, onEnd) {
-            if (!_speechSynth) {
-                if (onEnd) onEnd();
-                return;
-            }
-            clearInterval(_speechKeepAlive);
-            _speechSynth.cancel();
-            setTimeout(() => {
-                const voices = _speechSynth.getVoices();
-                const voice = voices.find(v => v.lang === 'en-US' && v.name.includes('Samantha')) ||
-                               voices.find(v => v.lang === 'en-GB') ||
-                               voices.find(v => v.lang.startsWith('en')) ||
-                               voices[0];
-                _currentUtterance = new SpeechSynthesisUtterance(text);
-                _currentUtterance.voice = voice || null;
-                _currentUtterance.lang = voice?.lang || 'en-US';
-                _currentUtterance.rate = 0.8;
-                _currentUtterance.pitch = 1.0;
-                _currentUtterance.volume = 1.0;
+                _ttsAudio.pause();
+                _ttsAudio.src = getYoudaoUrl(text);
                 if (onStart) onStart();
-                _currentUtterance.onend = () => {
-                    clearInterval(_speechKeepAlive);
-                    if (onEnd) onEnd();
+                let resolved = false;
+                const fallbackTimer = setTimeout(() => {
+                    if (!resolved) { resolved = true; speakFallback(text, onStart, onEnd); }
+                }, 1800);
+                _ttsAudio.onplay = () => {
+                    if (!resolved) { clearTimeout(fallbackTimer); resolved = true; if (onStart) onStart(); }
                 };
-                _currentUtterance.onerror = () => {
-                    clearInterval(_speechKeepAlive);
-                    if (onEnd) onEnd();
+                _ttsAudio.onended = () => {
+                    if (!resolved) { clearTimeout(fallbackTimer); resolved = true; if (onEnd) onEnd(); }
                 };
-                _speechKeepAlive = setInterval(() => {
-                    if (_speechSynth.speaking) _speechSynth.resume();
-                    else clearInterval(_speechKeepAlive);
-                }, 300);
-                _speechSynth.speak(_currentUtterance);
-            }, 50);
-        }
-
-        function speakWord(word, onStart, onEnd) {
-            if (!word) {
-                if (onEnd) onEnd();
-                return;
-            }
-            speakWithYoudao(word, onStart, onEnd);
-        }
-
-        function speakPhonemeExample(phonemeKey, onStart, onEnd) {
-            const data = phonemeData[phonemeKey];
-            if (!data) {
-                if (onEnd) onEnd();
-                return;
-            }
-            speakWord(data.word, onStart, onEnd);
-        }
-
-        // 解锁音频（移动端首次触摸激活）
-        function unlockAudio() {
-            try { new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
-            const tmp = new Audio();
-            tmp.src = 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI5LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABbgC7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjU0AAAAAAAAAAAAAAAAJAAAAAAAAAAAAbgDsbJwAAAAAAAAAAAAAAAAAAAA=';
-            tmp.play().catch(()=>{});
-        }
-        ['touchstart','touchend','click','pointerdown'].forEach(evt => {
-            document.addEventListener(evt, unlockAudio, { once: true });
-        });
-
-        // ========== 音效系统 ==========
-        let audioCtx = null;
-        function getAudioCtx() {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            return audioCtx;
-        }
-        function playBeep(freq, dur, type='sine') {
-            try {
-                const ctx = getAudioCtx();
-                if (ctx.state === 'suspended') return;
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = type;
-                osc.frequency.setValueAtTime(freq, ctx.currentTime);
-                gain.gain.setValueAtTime(0.15, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
-                osc.connect(gain); gain.connect(ctx.destination);
-                osc.start(ctx.currentTime); osc.stop(ctx.currentTime + dur);
-            } catch(e) {}
-        }
-        function playCorrectSound() {
-            playBeep(523,0.12); setTimeout(()=>playBeep(659,0.12),100); setTimeout(()=>playBeep(784,0.2),200);
-        }
-        function playWrongSound() {
-            playBeep(200,0.25,'square'); setTimeout(()=>playBeep(160,0.3,'square'),150);
-        }
-        function playLevelCompleteSound() {
-            [523,659,784,1047].forEach((f,i)=>setTimeout(()=>playBeep(f,0.2,'triangle'),i*130));
-        }
-        function playClickSound() { playBeep(880,0.06); }
-
-        // ========== UI 辅助 ==========
-        const appContainer = document.getElementById('appContainer');
-        const gameArea = document.getElementById('gameArea');
-        const scoreDisplay = document.getElementById('scoreDisplay');
-        const comboBadge = document.getElementById('comboBadge');
-        const livesDisplay = document.getElementById('livesDisplay');
-        const progressFill = document.getElementById('progressFill');
-        const progressFraction = document.getElementById('progressFraction');
-        const progressLabel = document.getElementById('progressLabel');
-        const totalStarsDisplay = document.getElementById('totalStars');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const modalContent = document.getElementById('modalContent');
-        const bottomActions = document.getElementById('bottomActions');
-        const scoreBar = document.getElementById('scoreBar');
-        const progressWrap = document.getElementById('progressWrap');
-        const btnPhonemeChart = document.getElementById('btnPhonemeChart');
-        const btnBackToLevels = document.getElementById('btnBackToLevels');
-
-        function updateTopBar() {
-            scoreDisplay.textContent = state.score;
-            totalStarsDisplay.textContent = state.totalStars;
-            if (state.combo >= 2) {
-                comboBadge.classList.add('active');
-                comboBadge.textContent = `🔥 连击 x${state.combo}`;
-            } else {
-                comboBadge.classList.remove('active');
-            }
-            let hearts = '';
-            for (let i=0; i<3; i++) hearts += `<span class="heart${i>=state.lives?' lost':''}">❤️</span>`;
-            livesDisplay.innerHTML = hearts;
-        }
-        function updateProgress(current, total) {
-            const pct = total>0 ? Math.round((current/total)*100) : 0;
-            progressFill.style.width = pct+'%';
-            progressFraction.textContent = `${current}/${total}`;
-        }
-        function showModal(html) { modalContent.innerHTML = html; modalOverlay.classList.remove('hidden'); }
-        function hideModal() { modalOverlay.classList.add('hidden'); }
-        modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) hideModal(); });
-
-        function shuffle(arr) {
-            const a = [...arr];
-            for (let i=a.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
-            return a;
-        }
-
-        function generateQuestions(levelDef) {
-            const keysToUse = shuffle([...levelDef.keys]);
-            const num = levelDef.questionsPerRound;
-            const selected = keysToUse.slice(0, num);
-            while (selected.length < num) selected.push(keysToUse[selected.length % keysToUse.length]);
-            return selected.map(key => {
-                const data = phonemeData[key];
-                const correctWord = data.altWords[Math.floor(Math.random()*data.altWords.length)] || data.word;
-                const distractorKeys = shuffle(allPhonemeKeys.filter(k => k!==key)).slice(0,3);
-                const distractorWords = distractorKeys.map(dk => {
-                    const dd = phonemeData[dk];
-                    return dd.altWords[Math.floor(Math.random()*dd.altWords.length)] || dd.word;
+                _ttsAudio.onerror = () => {
+                    if (!resolved) { clearTimeout(fallbackTimer); resolved = true; speakFallback(text, onStart, onEnd); }
+                };
+                _ttsAudio.play().catch(() => {
+                    if (!resolved) { clearTimeout(fallbackTimer); resolved = true; speakFallback(text, onStart, onEnd); }
                 });
-                const options = shuffle([
-                    { word: correctWord, isCorrect: true, phonemeKey: key },
-                    ...distractorWords.map((w,i)=>({ word: w, isCorrect: false, phonemeKey: distractorKeys[i] }))
-                ]);
-                return { phonemeKey: key, symbol: data.symbol, correctWord, options, category: data.category };
+            }
+
+            function speakFallback(text, onStart, onEnd) {
+                if (!_speechSynth) { if (onEnd) onEnd(); return; }
+                clearInterval(_speechKeepAlive);
+                _speechSynth.cancel();
+                setTimeout(() => {
+                    const voices = _speechSynth.getVoices();
+                    const voice = voices.find(v => v.lang === 'en-US' && v.name.includes('Samantha')) ||
+                                   voices.find(v => v.lang === 'en-GB') ||
+                                   voices.find(v => v.lang.startsWith('en')) ||
+                                   voices[0];
+                    _currentUtterance = new SpeechSynthesisUtterance(text);
+                    _currentUtterance.voice = voice || null;
+                    _currentUtterance.lang = voice?.lang || 'en-US';
+                    _currentUtterance.rate = 0.8;
+                    _currentUtterance.pitch = 1.0;
+                    _currentUtterance.volume = 1.0;
+                    if (onStart) onStart();
+                    _currentUtterance.onend = () => { clearInterval(_speechKeepAlive); if (onEnd) onEnd(); };
+                    _currentUtterance.onerror = () => { clearInterval(_speechKeepAlive); if (onEnd) onEnd(); };
+                    _speechKeepAlive = setInterval(() => {
+                        if (_speechSynth.speaking) _speechSynth.resume();
+                        else clearInterval(_speechKeepAlive);
+                    }, 300);
+                    _speechSynth.speak(_currentUtterance);
+                }, 50);
+            }
+
+            function speakWord(word, onStart, onEnd) {
+                if (!word) { if (onEnd) onEnd(); return; }
+                speakWithYoudao(word, onStart, onEnd);
+            }
+
+            // 发音标本身的音（使用映射文本）
+            function speakIpaSymbol(phonemeKey, onStart, onEnd) {
+                const text = ipaPronounceMap[phonemeKey];
+                if (text) {
+                    speakWord(text, onStart, onEnd);
+                } else if (onEnd) onEnd();
+            }
+
+            // 自动朗读仍保留示例单词（帮助建立音标-单词联系）
+            function speakPhonemeExample(phonemeKey, onStart, onEnd) {
+                const data = phonemeData[phonemeKey];
+                if (!data) { if (onEnd) onEnd(); return; }
+                speakWord(data.word, onStart, onEnd);
+            }
+
+            function unlockAudio() {
+                try { new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
+                const tmp = new Audio();
+                tmp.src = 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI5LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABbgC7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjU0AAAAAAAAAAAAAAAAJAAAAAAAAAAAAbgDsbJwAAAAAAAAAAAAAAAAAAAA=';
+                tmp.play().catch(()=>{});
+            }
+            ['touchstart','touchend','click','pointerdown'].forEach(evt => {
+                document.addEventListener(evt, unlockAudio, { once: true });
             });
-        }
 
-        // ========== 视图：关卡选择 ==========
-        function renderLevelSelect() {
-            state.currentView = 'levels';
-            state.currentLevelId = null;
-            state.currentQuestionIndex = 0;
-            state.questions = [];
-            state.score = 0; state.combo = 0; state.maxCombo = 0;
-            state.lives = 3; state.isAnswerLocked = false;
+            // ========== 音效 ==========
+            let audioCtx = null;
+            function getAudioCtx() {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                return audioCtx;
+            }
+            function playBeep(freq, dur, type='sine') {
+                try {
+                    const ctx = getAudioCtx();
+                    if (ctx.state === 'suspended') return;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = type;
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+                    osc.connect(gain); gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime); osc.stop(ctx.currentTime + dur);
+                } catch(e) {}
+            }
+            function playCorrectSound() { playBeep(523,0.12); setTimeout(()=>playBeep(659,0.12),100); setTimeout(()=>playBeep(784,0.2),200); }
+            function playWrongSound() { playBeep(200,0.25,'square'); setTimeout(()=>playBeep(160,0.3,'square'),150); }
+            function playLevelCompleteSound() { [523,659,784,1047].forEach((f,i)=>setTimeout(()=>playBeep(f,0.2,'triangle'),i*130)); }
+            function playClickSound() { playBeep(880,0.06); }
 
-            gameArea.innerHTML = `
-                <h3 style="margin-bottom:6px;">🗺️ 选择关卡</h3>
-                <p style="color:#636e72;font-size:0.9rem;margin-bottom:12px;">从短元音开始，逐步征服所有音标！</p>
-                <div class="level-grid">
-                    ${levelDefinitions.map(ld => {
-                        const prog = state.levelProgress[ld.id];
-                        const completed = prog?.completed;
-                        const stars = prog?.stars || 0;
+            // ========== UI 辅助 ==========
+            const appContainer = document.getElementById('appContainer');
+            const gameArea = document.getElementById('gameArea');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const comboBadge = document.getElementById('comboBadge');
+            const livesDisplay = document.getElementById('livesDisplay');
+            const progressFill = document.getElementById('progressFill');
+            const progressFraction = document.getElementById('progressFraction');
+            const progressLabel = document.getElementById('progressLabel');
+            const totalStarsDisplay = document.getElementById('totalStars');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalContent = document.getElementById('modalContent');
+            const bottomActions = document.getElementById('bottomActions');
+            const scoreBar = document.getElementById('scoreBar');
+            const progressWrap = document.getElementById('progressWrap');
+            const btnPhonemeChart = document.getElementById('btnPhonemeChart');
+            const btnBackToLevels = document.getElementById('btnBackToLevels');
+
+            function updateTopBar() {
+                scoreDisplay.textContent = state.score;
+                totalStarsDisplay.textContent = state.totalStars;
+                if (state.combo >= 2) {
+                    comboBadge.classList.add('active');
+                    comboBadge.textContent = `🔥 连击 x${state.combo}`;
+                } else {
+                    comboBadge.classList.remove('active');
+                }
+                let hearts = '';
+                for (let i=0; i<3; i++) hearts += `<span class="heart${i>=state.lives?' lost':''}">❤️</span>`;
+                livesDisplay.innerHTML = hearts;
+            }
+            function updateProgress(current, total) {
+                const pct = total>0 ? Math.round((current/total)*100) : 0;
+                progressFill.style.width = pct+'%';
+                progressFraction.textContent = `${current}/${total}`;
+            }
+            function showModal(html) { modalContent.innerHTML = html; modalOverlay.classList.remove('hidden'); }
+            function hideModal() { modalOverlay.classList.add('hidden'); }
+            modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) hideModal(); });
+
+            function shuffle(arr) {
+                const a = [...arr];
+                for (let i=a.length-1; i>0; i--) { const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+                return a;
+            }
+
+            function generateQuestions(levelDef) {
+                const keysToUse = shuffle([...levelDef.keys]);
+                const num = levelDef.questionsPerRound;
+                const selected = keysToUse.slice(0, num);
+                while (selected.length < num) selected.push(keysToUse[selected.length % keysToUse.length]);
+                return selected.map(key => {
+                    const data = phonemeData[key];
+                    const correctWord = data.altWords[Math.floor(Math.random()*data.altWords.length)] || data.word;
+                    const distractorKeys = shuffle(allPhonemeKeys.filter(k => k!==key)).slice(0,3);
+                    const distractorWords = distractorKeys.map(dk => {
+                        const dd = phonemeData[dk];
+                        return dd.altWords[Math.floor(Math.random()*dd.altWords.length)] || dd.word;
+                    });
+                    const options = shuffle([
+                        { word: correctWord, isCorrect: true, phonemeKey: key },
+                        ...distractorWords.map((w,i)=>({ word: w, isCorrect: false, phonemeKey: distractorKeys[i] }))
+                    ]);
+                    return { phonemeKey: key, symbol: data.symbol, correctWord, options, category: data.category };
+                });
+            }
+
+            // ========== 关卡选择 ==========
+            function renderLevelSelect() {
+                state.currentView = 'levels';
+                state.currentLevelId = null;
+                state.currentQuestionIndex = 0;
+                state.questions = [];
+                state.score = 0; state.combo = 0; state.maxCombo = 0;
+                state.lives = 3; state.isAnswerLocked = false;
+
+                gameArea.innerHTML = `
+                    <h3 style="margin-bottom:6px;">🗺️ 选择关卡</h3>
+                    <p style="color:#636e72;font-size:0.9rem;margin-bottom:12px;">从短元音开始，逐步征服所有音标！</p>
+                    <div class="level-grid">
+                        ${levelDefinitions.map(ld => {
+                            const prog = state.levelProgress[ld.id];
+                            const completed = prog?.completed;
+                            const stars = prog?.stars || 0;
+                            const unlocked = ld.id===1 || state.levelProgress[ld.id-1]?.completed;
+                            return `
+                                <div class="level-btn ${completed?'completed':(unlocked?'unlocked':'locked')}" data-level-id="${ld.id}" ${!unlocked?'style="pointer-events:none;"':''}>
+                                    ${!unlocked ? '<span class="lock-icon">🔒</span>' : ''}
+                                    <span style="font-size:1.8rem;">${ld.icon}</span>
+                                    <span style="font-size:0.7rem;font-weight:600;">${ld.name}</span>
+                                    <span class="level-stars">${completed?'⭐'.repeat(stars)+'☆'.repeat(3-stars):''}</span>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    <button class="btn btn-accent mt-16" id="btnStartAny">🎮 快速游戏（随机挑战）</button>
+                `;
+                progressWrap.classList.add('hidden');
+                scoreBar.classList.add('hidden');
+                bottomActions.classList.remove('hidden');
+                btnPhonemeChart.classList.remove('hidden');
+                btnBackToLevels.classList.add('hidden');
+                updateTopBar();
+                updateProgress(0,0);
+
+                gameArea.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const levelId = parseInt(this.dataset.levelId);
+                        const ld = levelDefinitions.find(l=>l.id===levelId);
+                        if (!ld) return;
                         const unlocked = ld.id===1 || state.levelProgress[ld.id-1]?.completed;
-                        return `
-                            <div class="level-btn ${completed?'completed':(unlocked?'unlocked':'locked')}" data-level-id="${ld.id}" ${!unlocked?'style="pointer-events:none;"':''}>
-                                ${!unlocked ? '<span class="lock-icon">🔒</span>' : ''}
-                                <span style="font-size:1.8rem;">${ld.icon}</span>
-                                <span style="font-size:0.7rem;font-weight:600;">${ld.name}</span>
-                                <span class="level-stars">${completed?'⭐'.repeat(stars)+'☆'.repeat(3-stars):''}</span>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-                <button class="btn btn-accent mt-16" id="btnStartAny">🎮 快速游戏（随机挑战）</button>
-            `;
-            progressWrap.classList.add('hidden');
-            scoreBar.classList.add('hidden');
-            bottomActions.classList.remove('hidden');
-            btnPhonemeChart.classList.remove('hidden');
-            btnBackToLevels.classList.add('hidden');
-            updateTopBar();
-            updateProgress(0,0);
-
-            gameArea.querySelectorAll('.level-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const levelId = parseInt(this.dataset.levelId);
-                    const ld = levelDefinitions.find(l=>l.id===levelId);
-                    if (!ld) return;
-                    const unlocked = ld.id===1 || state.levelProgress[ld.id-1]?.completed;
-                    if (!unlocked && ld.id>1) {
-                        playWrongSound();
-                        showModal(`<div class="big-emoji">🔒</div><h2>关卡未解锁</h2><p>请先完成前面的关卡！</p><button class="btn btn-primary mt-12" onclick="document.getElementById('modalOverlay').classList.add('hidden')">知道了</button>`);
-                        return;
-                    }
-                    playClickSound();
-                    startLevel(ld);
-                });
-            });
-            document.getElementById('btnStartAny')?.addEventListener('click', () => {
-                playClickSound();
-                const unlocked = levelDefinitions.filter(ld => ld.id===1 || state.levelProgress[ld.id-1]?.completed);
-                startLevel(unlocked[Math.floor(Math.random()*unlocked.length)] || levelDefinitions[0]);
-            });
-        }
-
-        function startLevel(levelDef) {
-            state.currentView = 'game';
-            state.currentLevelId = levelDef.id;
-            state.currentQuestionIndex = 0;
-            state.score = 0; state.combo = 0; state.maxCombo = 0;
-            state.lives = 3; state.isAnswerLocked = false;
-            state.questions = generateQuestions(levelDef);
-
-            progressWrap.classList.remove('hidden');
-            scoreBar.classList.remove('hidden');
-            bottomActions.classList.remove('hidden');
-            btnPhonemeChart.classList.remove('hidden');
-            btnBackToLevels.classList.remove('hidden');
-            progressLabel.textContent = levelDef.name;
-            updateTopBar();
-            updateProgress(0, state.questions.length);
-            renderQuestion();
-        }
-
-        // ========== 视图：答题 ==========
-        function renderQuestion() {
-            if (state.currentQuestionIndex >= state.questions.length) { finishLevel(); return; }
-            state.isAnswerLocked = false;
-            const q = state.questions[state.currentQuestionIndex];
-            const total = state.questions.length;
-            const current = state.currentQuestionIndex;
-            updateProgress(current, total);
-            updateTopBar();
-
-            gameArea.innerHTML = `
-                <div style="font-size:0.85rem;color:#636e72;">第 ${current+1} / ${total} 题 · ${q.category}</div>
-                <div class="phoneme-display" id="phonemeDisplay">
-                    ${q.symbol}
-                    <button class="listen-btn" id="btnListenMain" title="听发音示例">🔊</button>
-                </div>
-                <div class="phoneme-hint">👆 点击喇叭听示例单词发音</div>
-                <div class="feedback-msg" id="feedbackMsg"></div>
-                <div class="options-grid" id="optionsGrid">
-                    ${q.options.map((opt,i) => `
-                        <div class="option-card" data-index="${i}" data-correct="${opt.isCorrect}">
-                            <span>${opt.word}</span>
-                            <button class="mini-speak" data-word="${opt.word}">🔈</button>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-
-            const btnListen = document.getElementById('btnListenMain');
-            if (btnListen) {
-                btnListen.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    if (this.classList.contains('playing')) return; // 防止重复点击
-                    this.classList.add('playing');
-                    speakPhonemeExample(q.phonemeKey, null, () => {
-                        this.classList.remove('playing');
-                    });
-                });
-            }
-
-            const grid = document.getElementById('optionsGrid');
-            if (grid) {
-                grid.querySelectorAll('.option-card').forEach(card => {
-                    card.addEventListener('click', function(e) {
-                        if (state.isAnswerLocked || e.target.classList.contains('mini-speak')) return;
-                        handleAnswer(card, q);
-                    });
-                });
-                grid.querySelectorAll('.mini-speak').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        playClickSound();
-                        speakWord(this.dataset.word);
-                    });
-                });
-            }
-
-            // 自动朗读一次
-            setTimeout(() => {
-                if (btnListen && !state.isAnswerLocked) {
-                    btnListen.classList.add('playing');
-                    speakPhonemeExample(q.phonemeKey, null, () => {
-                        if (btnListen) btnListen.classList.remove('playing');
-                    });
-                }
-            }, 400);
-        }
-
-        function handleAnswer(card, question) {
-            if (state.isAnswerLocked) return;
-            state.isAnswerLocked = true;
-            const isCorrect = card.dataset.correct === 'true';
-            const feedback = document.getElementById('feedbackMsg');
-            const allCards = document.querySelectorAll('.option-card');
-            allCards.forEach(c => c.classList.add('disabled'));
-
-            if (isCorrect) {
-                card.classList.add('correct');
-                state.combo++;
-                if (state.combo > state.maxCombo) state.maxCombo = state.combo;
-                const bonus = Math.min(state.combo-1,5)*10;
-                state.score += 50 + bonus;
-                feedback.textContent = `✅ 太棒了！+${50+bonus}分${state.combo>=3?' (连击奖励!)':''}`;
-                feedback.className = 'feedback-msg correct-msg';
-                playCorrectSound();
-            } else {
-                card.classList.add('wrong');
-                allCards.forEach(c => { if (c.dataset.correct === 'true') c.classList.add('correct'); });
-                state.combo = 0;
-                state.lives--;
-                feedback.textContent = '❌ 不对哦～正确答案已标出。生命 -1';
-                feedback.className = 'feedback-msg wrong-msg';
-                playWrongSound();
-            }
-            updateTopBar();
-
-            if (state.lives <= 0) {
-                setTimeout(() => gameOver(), 1500);
-                return;
-            }
-            setTimeout(() => {
-                state.currentQuestionIndex++;
-                if (state.currentQuestionIndex >= state.questions.length) finishLevel();
-                else renderQuestion();
-            }, 1400);
-        }
-
-        function finishLevel() {
-            state.isAnswerLocked = true;
-            const levelDef = levelDefinitions.find(l => l.id === state.currentLevelId);
-            if (!levelDef) return;
-            const total = state.questions.length;
-            const estimatedCorrect = total - (3 - Math.max(state.lives,0));
-            const pass = estimatedCorrect >= Math.ceil(total*levelDef.passPercent) && state.lives>0;
-            let stars = 0;
-            if (pass) {
-                const ratio = estimatedCorrect/total;
-                if (ratio >= 0.95) stars = 3;
-                else if (ratio >= 0.8) stars = 2;
-                else stars = 1;
-            }
-            const prev = state.levelProgress[levelDef.id] || {};
-            if (pass) {
-                state.levelProgress[levelDef.id] = {
-                    completed: true,
-                    stars: Math.max(prev.stars||0, stars),
-                    bestScore: Math.max(prev.bestScore||0, state.score),
-                };
-            }
-            state.totalStars = Object.values(state.levelProgress).reduce((sum,p)=>sum+(p.stars||0),0);
-            updateTopBar();
-            saveProgress();
-            if (pass) playLevelCompleteSound();
-
-            progressFill.style.width = '100%';
-            progressFraction.textContent = `${total}/${total}`;
-            const starStr = ['','⭐','🌟🌟','🌟🌟🌟'][stars];
-            gameArea.innerHTML = `
-                <div style="text-align:center;">
-                    ${pass ? `<div class="big-emoji">🎉</div><h2>恭喜过关！</h2><div class="star-result">${starStr}</div>` : `<div class="big-emoji">😢</div><h2>还需努力</h2>`}
-                    <p>得分: <strong>${state.score}</strong> | 最大连击: <strong>${state.maxCombo}</strong></p>
-                    <p style="color:#636e72;">正确约 ${estimatedCorrect}/${total} 题</p>
-                    <div class="flex-wrap gap-8 mt-16">
-                        <button class="btn btn-accent" id="btnRetry">🔄 ${pass?'再玩一次':'重新挑战'}</button>
-                        <button class="btn btn-primary" id="btnNextLevel">${pass && levelDef.id<levelDefinitions.length?'▶️ 下一关':'🏠 关卡选择'}</button>
-                    </div>
-                </div>`;
-            document.getElementById('btnRetry').addEventListener('click', ()=>{ playClickSound(); startLevel(levelDef); });
-            document.getElementById('btnNextLevel').addEventListener('click', ()=>{
-                playClickSound();
-                if (pass && levelDef.id < levelDefinitions.length) {
-                    const next = levelDefinitions.find(l=>l.id===levelDef.id+1);
-                    if (next) startLevel(next); else renderLevelSelect();
-                } else renderLevelSelect();
-            });
-        }
-
-        function gameOver() {
-            state.isAnswerLocked = true;
-            const total = state.questions.length;
-            playWrongSound();
-            gameArea.innerHTML = `
-                <div style="text-align:center;">
-                    <div class="big-emoji">💔</div><h2>生命耗尽</h2>
-                    <p>正确约 ${Math.max(0,total-(3-state.lives))}/${total} 题</p>
-                    <p>得分: ${state.score}</p>
-                    <div class="flex-wrap gap-8 mt-16">
-                        <button class="btn btn-accent" id="btnRetryGO">🔄 重新挑战</button>
-                        <button class="btn btn-secondary" id="btnBackGO">🏠 返回关卡</button>
-                    </div>
-                </div>`;
-            document.getElementById('btnRetryGO').addEventListener('click', ()=>{
-                playClickSound();
-                const ld = levelDefinitions.find(l=>l.id===state.currentLevelId);
-                if (ld) startLevel(ld); else renderLevelSelect();
-            });
-            document.getElementById('btnBackGO').addEventListener('click', ()=>{ playClickSound(); renderLevelSelect(); });
-            updateTopBar(); updateProgress(total,total);
-        }
-
-        function showPhonemeChart() {
-            playClickSound();
-            const cats = {};
-            allPhonemeKeys.forEach(k => { const cat = phonemeData[k].category; if (!cats[cat]) cats[cat]=[]; cats[cat].push(k); });
-            let html = '';
-            for (const [cat, keys] of Object.entries(cats)) {
-                html += `<div style="margin-bottom:8px;"><strong style="font-size:0.8rem;color:#636e72;">${cat}</strong><div class="phoneme-chart" style="max-height:unset;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));">${keys.map(k=>`<div class="phoneme-chip" data-phoneme="${k}">${phonemeData[k].symbol}</div>`).join('')}</div></div>`;
-            }
-            showModal(`<h3>📖 音标参考表</h3><p style="font-size:0.8rem;color:#636e72;">点击音标听示例发音</p><div style="max-height:55vh;overflow-y:auto;">${html}</div><button class="btn btn-primary mt-12" id="btnCloseChart">关闭</button>`);
-            setTimeout(() => {
-                modalContent.querySelectorAll('.phoneme-chip').forEach(chip => {
-                    chip.addEventListener('click', function() {
-                        const key = this.dataset.phoneme;
-                        if (key && phonemeData[key]) {
-                            playClickSound();
-                            this.style.background='#ffeaa7';
-                            speakPhonemeExample(key, null, ()=> { this.style.background=''; });
+                        if (!unlocked && ld.id>1) {
+                            playWrongSound();
+                            showModal(`<div class="big-emoji">🔒</div><h2>关卡未解锁</h2><p>请先完成前面的关卡！</p><button class="btn btn-primary mt-12" onclick="document.getElementById('modalOverlay').classList.add('hidden')">知道了</button>`);
+                            return;
                         }
+                        playClickSound();
+                        startLevel(ld);
                     });
                 });
-                document.getElementById('btnCloseChart')?.addEventListener('click', hideModal);
-            }, 100);
-        }
-
-        function saveProgress() {
-            try { localStorage.setItem('phonics_quest_progress', JSON.stringify({ levelProgress: state.levelProgress, totalStars: state.totalStars })); } catch(e){}
-        }
-        function loadProgress() {
-            try {
-                const raw = localStorage.getItem('phonics_quest_progress');
-                if (raw) { const d = JSON.parse(raw); state.levelProgress = d.levelProgress||{}; state.totalStars = d.totalStars||0; }
-            } catch(e){}
-        }
-        function resetProgress() {
-            state.levelProgress = {}; state.totalStars = 0;
-            saveProgress(); renderLevelSelect(); updateTopBar(); playClickSound();
-        }
-
-        btnPhonemeChart.addEventListener('click', showPhonemeChart);
-        btnBackToLevels.addEventListener('click', ()=>{ playClickSound(); _speechSynth?.cancel(); renderLevelSelect(); });
-
-        let titleClicks = 0, titleTimer = null;
-        document.querySelector('.header .title').addEventListener('click', ()=>{
-            titleClicks++;
-            if (titleClicks >= 5) {
-                titleClicks=0;
-                if (confirm('确定要重置所有游戏进度吗？')) resetProgress();
+                document.getElementById('btnStartAny')?.addEventListener('click', () => {
+                    playClickSound();
+                    const unlocked = levelDefinitions.filter(ld => ld.id===1 || state.levelProgress[ld.id-1]?.completed);
+                    startLevel(unlocked[Math.floor(Math.random()*unlocked.length)] || levelDefinitions[0]);
+                });
             }
-            if (titleTimer) clearTimeout(titleTimer);
-            titleTimer = setTimeout(()=>{ titleClicks=0; }, 1500);
-        });
 
-        document.addEventListener('keydown', e => {
-            if (state.currentView==='game' && !state.isAnswerLocked) {
-                const idx = ['1','2','3','4'].indexOf(e.key);
-                if (idx>=0) {
-                    const cards = document.querySelectorAll('.option-card');
-                    if (cards[idx]) cards[idx].click();
+            function startLevel(levelDef) {
+                state.currentView = 'game';
+                state.currentLevelId = levelDef.id;
+                state.currentQuestionIndex = 0;
+                state.score = 0; state.combo = 0; state.maxCombo = 0;
+                state.lives = 3; state.isAnswerLocked = false;
+                state.questions = generateQuestions(levelDef);
+
+                progressWrap.classList.remove('hidden');
+                scoreBar.classList.remove('hidden');
+                bottomActions.classList.remove('hidden');
+                btnPhonemeChart.classList.remove('hidden');
+                btnBackToLevels.classList.remove('hidden');
+                progressLabel.textContent = levelDef.name;
+                updateTopBar();
+                updateProgress(0, state.questions.length);
+                renderQuestion();
+            }
+
+            // ========== 答题界面 ==========
+            function renderQuestion() {
+                if (state.currentQuestionIndex >= state.questions.length) { finishLevel(); return; }
+                state.isAnswerLocked = false;
+                const q = state.questions[state.currentQuestionIndex];
+                const total = state.questions.length;
+                const current = state.currentQuestionIndex;
+                updateProgress(current, total);
+                updateTopBar();
+
+                gameArea.innerHTML = `
+                    <div style="font-size:0.85rem;color:#636e72;">第 ${current+1} / ${total} 题 · ${q.category}</div>
+                    <div class="phoneme-display" id="phonemeDisplay">
+                        ${q.symbol}
+                        <button class="listen-btn" id="btnListenMain" title="听音标发音">🔊</button>
+                    </div>
+                    <div class="phoneme-hint">👆 点击喇叭听音标本身发音</div>
+                    <div class="feedback-msg" id="feedbackMsg"></div>
+                    <div class="options-grid" id="optionsGrid">
+                        ${q.options.map((opt,i) => `
+                            <div class="option-card" data-index="${i}" data-correct="${opt.isCorrect}">
+                                <span>${opt.word}</span>
+                                <button class="mini-speak" data-word="${opt.word}">🔈</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                const btnListen = document.getElementById('btnListenMain');
+                if (btnListen) {
+                    const handleListen = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (btnListen.classList.contains('playing')) return;
+                        btnListen.classList.add('playing');
+                        speakIpaSymbol(q.phonemeKey, null, () => {
+                            btnListen.classList.remove('playing');
+                        });
+                    };
+                    btnListen.addEventListener('click', handleListen);
+                    btnListen.addEventListener('touchend', handleListen);
                 }
-            }
-            if (e.key==='Escape') hideModal();
-        });
 
-        // ========== 启动 ==========
-        loadProgress();
-        updateTopBar();
-        renderLevelSelect();
-        if (_speechSynth) { _speechSynth.getVoices(); _speechSynth.onvoiceschanged = ()=> _speechSynth.getVoices(); }
-        console.log('🎯 英语音标大冒险已就绪（增强发音版）');
-    })();
-</script>
+                const grid = document.getElementById('optionsGrid');
+                if (grid) {
+                    grid.querySelectorAll('.option-card').forEach(card => {
+                        card.addEventListener('click', function(e) {
+                            if (state.isAnswerLocked || e.target.classList.contains('mini-speak')) return;
+                            handleAnswer(card, q);
+                        });
+                    });
+                    grid.querySelectorAll('.mini-speak').forEach(btn => {
+                        btn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            playClickSound();
+                            speakWord(this.dataset.word);
+                        });
+                    });
+                }
+
+                // 自动朗读示例单词（建立联系）
+                setTimeout(() => {
+                    if (!state.isAnswerLocked) {
+                        speakPhonemeExample(q.phonemeKey, null, null);
+                    }
+                }, 400);
+            }
+
+            function handleAnswer(card, question) {
+                if (state.isAnswerLocked) return;
+                state.isAnswerLocked = true;
+                const isCorrect = card.dataset.correct === 'true';
+                const feedback = document.getElementById('feedbackMsg');
+                const allCards = document.querySelectorAll('.option-card');
+                allCards.forEach(c => c.classList.add('disabled'));
+
+                if (isCorrect) {
+                    card.classList.add('correct');
+                    state.combo++;
+                    if (state.combo > state.maxCombo) state.maxCombo = state.combo;
+                    const bonus = Math.min(state.combo-1,5)*10;
+                    state.score += 50 + bonus;
+                    feedback.textContent = `✅ 太棒了！+${50+bonus}分${state.combo>=3?' (连击奖励!)':''}`;
+                    feedback.className = 'feedback-msg correct-msg';
+                    playCorrectSound();
+                } else {
+                    card.classList.add('wrong');
+                    allCards.forEach(c => { if (c.dataset.correct === 'true') c.classList.add('correct'); });
+                    state.combo = 0;
+                    state.lives--;
+                    feedback.textContent = '❌ 不对哦～正确答案已标出。生命 -1';
+                    feedback.className = 'feedback-msg wrong-msg';
+                    playWrongSound();
+                }
+                updateTopBar();
+
+                if (state.lives <= 0) {
+                    setTimeout(() => gameOver(), 1500);
+                    return;
+                }
+                setTimeout(() => {
+                    state.currentQuestionIndex++;
+                    if (state.currentQuestionIndex >= state.questions.length) finishLevel();
+                    else renderQuestion();
+                }, 1400);
+            }
+
+            function finishLevel() {
+                state.isAnswerLocked = true;
+                const levelDef = levelDefinitions.find(l => l.id === state.currentLevelId);
+                if (!levelDef) return;
+                const total = state.questions.length;
+                const estimatedCorrect = total - (3 - Math.max(state.lives,0));
+                const pass = estimatedCorrect >= Math.ceil(total*levelDef.passPercent) && state.lives>0;
+                let stars = 0;
+                if (pass) {
+                    const ratio = estimatedCorrect/total;
+                    if (ratio >= 0.95) stars = 3;
+                    else if (ratio >= 0.8) stars = 2;
+                    else stars = 1;
+                }
+                const prev = state.levelProgress[levelDef.id] || {};
+                if (pass) {
+                    state.levelProgress[levelDef.id] = {
+                        completed: true,
+                        stars: Math.max(prev.stars||0, stars),
+                        bestScore: Math.max(prev.bestScore||0, state.score),
+                    };
+                }
+                state.totalStars = Object.values(state.levelProgress).reduce((sum,p)=>sum+(p.stars||0),0);
+                updateTopBar();
+                saveProgress();
+                if (pass) playLevelCompleteSound();
+
+                progressFill.style.width = '100%';
+                progressFraction.textContent = `${total}/${total}`;
+                const starStr = ['','⭐','🌟🌟','🌟🌟🌟'][stars];
+                gameArea.innerHTML = `
+                    <div style="text-align:center;">
+                        ${pass ? `<div class="big-emoji">🎉</div><h2>恭喜过关！</h2><div class="star-result">${starStr}</div>` : `<div class="big-emoji">😢</div><h2>还需努力</h2>`}
+                        <p>得分: <strong>${state.score}</strong> | 最大连击: <strong>${state.maxCombo}</strong></p>
+                        <p style="color:#636e72;">正确约 ${estimatedCorrect}/${total} 题</p>
+                        <div class="flex-wrap gap-8 mt-16">
+                            <button class="btn btn-accent" id="btnRetry">🔄 ${pass?'再玩一次':'重新挑战'}</button>
+                            <button class="btn btn-primary" id="btnNextLevel">${pass && levelDef.id<levelDefinitions.length?'▶️ 下一关':'🏠 关卡选择'}</button>
+                        </div>
+                    </div>`;
+                document.getElementById('btnRetry').addEventListener('click', ()=>{ playClickSound(); startLevel(levelDef); });
+                document.getElementById('btnNextLevel').addEventListener('click', ()=>{
+                    playClickSound();
+                    if (pass && levelDef.id < levelDefinitions.length) {
+                        const next = levelDefinitions.find(l=>l.id===levelDef.id+1);
+                        if (next) startLevel(next); else renderLevelSelect();
+                    } else renderLevelSelect();
+                });
+            }
+
+            function gameOver() {
+                state.isAnswerLocked = true;
+                const total = state.questions.length;
+                playWrongSound();
+                gameArea.innerHTML = `
+                    <div style="text-align:center;">
+                        <div class="big-emoji">💔</div><h2>生命耗尽</h2>
+                        <p>正确约 ${Math.max(0,total-(3-state.lives))}/${total} 题</p>
+                        <p>得分: ${state.score}</p>
+                        <div class="flex-wrap gap-8 mt-16">
+                            <button class="btn btn-accent" id="btnRetryGO">🔄 重新挑战</button>
+                            <button class="btn btn-secondary" id="btnBackGO">🏠 返回关卡</button>
+                        </div>
+                    </div>`;
+                document.getElementById('btnRetryGO').addEventListener('click', ()=>{
+                    playClickSound();
+                    const ld = levelDefinitions.find(l=>l.id===state.currentLevelId);
+                    if (ld) startLevel(ld); else renderLevelSelect();
+                });
+                document.getElementById('btnBackGO').addEventListener('click', ()=>{ playClickSound(); renderLevelSelect(); });
+                updateTopBar(); updateProgress(total,total);
+            }
+
+            // ========== 音标表（发音标本身） ==========
+            function showPhonemeChart() {
+                playClickSound();
+                const cats = {};
+                allPhonemeKeys.forEach(k => { const cat = phonemeData[k].category; if (!cats[cat]) cats[cat]=[]; cats[cat].push(k); });
+                let html = '';
+                for (const [cat, keys] of Object.entries(cats)) {
+                    html += `<div style="margin-bottom:8px;"><strong style="font-size:0.8rem;color:#636e72;">${cat}</strong><div class="phoneme-chart" style="max-height:unset;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));">${keys.map(k=>`<div class="phoneme-chip" data-phoneme="${k}">${phonemeData[k].symbol}</div>`).join('')}</div></div>`;
+                }
+                showModal(`<h3>📖 音标参考表</h3><p style="font-size:0.8rem;color:#636e72;">点击音标听发音</p><div style="max-height:55vh;overflow-y:auto;">${html}</div><button class="btn btn-primary mt-12" id="btnCloseChart">关闭</button>`);
+                setTimeout(() => {
+                    modalContent.querySelectorAll('.phoneme-chip').forEach(chip => {
+                        const key = chip.dataset.phoneme;
+                        if (!key) return;
+                        const handler = function(e) {
+                            e.preventDefault();
+                            playClickSound();
+                            chip.style.background='#ffeaa7';
+                            speakIpaSymbol(key, null, ()=> { chip.style.background=''; });
+                        };
+                        chip.addEventListener('click', handler);
+                        chip.addEventListener('touchend', handler);
+                    });
+                    document.getElementById('btnCloseChart')?.addEventListener('click', hideModal);
+                }, 100);
+            }
+
+            function saveProgress() {
+                try { localStorage.setItem('phonics_quest_progress', JSON.stringify({ levelProgress: state.levelProgress, totalStars: state.totalStars })); } catch(e){}
+            }
+            function loadProgress() {
+                try {
+                    const raw = localStorage.getItem('phonics_quest_progress');
+                    if (raw) { const d = JSON.parse(raw); state.levelProgress = d.levelProgress||{}; state.totalStars = d.totalStars||0; }
+                } catch(e){}
+            }
+            function resetProgress() {
+                state.levelProgress = {}; state.totalStars = 0;
+                saveProgress(); renderLevelSelect(); updateTopBar(); playClickSound();
+            }
+
+            btnPhonemeChart.addEventListener('click', showPhonemeChart);
+            btnBackToLevels.addEventListener('click', ()=>{ playClickSound(); _speechSynth?.cancel(); renderLevelSelect(); });
+
+            let titleClicks = 0, titleTimer = null;
+            document.querySelector('.header .title').addEventListener('click', ()=>{
+                titleClicks++;
+                if (titleClicks >= 5) {
+                    titleClicks=0;
+                    if (confirm('确定要重置所有游戏进度吗？')) resetProgress();
+                }
+                if (titleTimer) clearTimeout(titleTimer);
+                titleTimer = setTimeout(()=>{ titleClicks=0; }, 1500);
+            });
+
+            document.addEventListener('keydown', e => {
+                if (state.currentView==='game' && !state.isAnswerLocked) {
+                    const idx = ['1','2','3','4'].indexOf(e.key);
+                    if (idx>=0) {
+                        const cards = document.querySelectorAll('.option-card');
+                        if (cards[idx]) cards[idx].click();
+                    }
+                }
+                if (e.key==='Escape') hideModal();
+            });
+
+            // ========== 启动 ==========
+            loadProgress();
+            updateTopBar();
+            renderLevelSelect();
+            if (_speechSynth) { _speechSynth.getVoices(); _speechSynth.onvoiceschanged = ()=> _speechSynth.getVoices(); }
+            console.log('🎯 英语音标大冒险已就绪（音标发音版）');
+        })();
+    </script>
 </body>
 </html>
