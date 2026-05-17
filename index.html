@@ -775,15 +775,52 @@
                 'j': { symbol: '/j/', word: 'yes', altWords: ['you','yellow','yoga'], category: '半元音', color: '#d35400' },
             };
 
-            // 音标符号 → 近似朗读文本（用于发音标本身的音）
-            const ipaPronounceMap = {
-                'ɪ': 'ih', 'e': 'eh', 'æ': 'a', 'ʌ': 'uh', 'ɒ': 'o', 'ʊ': 'oo', 'ə': 'uh',
-                'iː': 'ee', 'ɑː': 'ah', 'ɔː': 'aw', 'uː': 'oo', 'ɜː': 'er',
-                'eɪ': 'ay', 'aɪ': 'eye', 'ɔɪ': 'oy', 'aʊ': 'ow', 'əʊ': 'oh',
-                'ɪə': 'ear', 'eə': 'air', 'ʊə': 'ure',
-                'p': 'p', 't': 't', 'k': 'k', 'f': 'f', 'θ': 'th', 's': 's', 'ʃ': 'sh', 'h': 'h', 'tʃ': 'ch',
-                'b': 'b', 'd': 'd', 'ɡ': 'g', 'v': 'v', 'ð': 'th', 'z': 'z', 'ʒ': 'zh', 'dʒ': 'j',
-                'm': 'm', 'n': 'n', 'ŋ': 'ng', 'l': 'l', 'r': 'r', 'w': 'w', 'j': 'y'
+            // 音标键 → 本地MP3文件名（存放在 sounds/ 目录下）
+            const ipaAudioMap = {
+                'ɪ': 'i.mp3',
+                'e': 'e.mp3',
+                'æ': 'ae.mp3',
+                'ʌ': 'uh.mp3',
+                'ɒ': 'o.mp3',
+                'ʊ': 'oo.mp3',
+                'ə': 'schwa.mp3',
+                'iː': 'i_long.mp3',
+                'ɑː': 'a_long.mp3',
+                'ɔː': 'o_long.mp3',
+                'uː': 'u_long.mp3',
+                'ɜː': 'er_long.mp3',
+                'eɪ': 'ay.mp3',
+                'aɪ': 'eye.mp3',
+                'ɔɪ': 'oy.mp3',
+                'aʊ': 'ow.mp3',
+                'əʊ': 'oh.mp3',
+                'ɪə': 'ear.mp3',
+                'eə': 'air.mp3',
+                'ʊə': 'ure.mp3',
+                'p': 'p.mp3',
+                't': 't.mp3',
+                'k': 'k.mp3',
+                'f': 'f.mp3',
+                'θ': 'th_voiceless.mp3',
+                's': 's.mp3',
+                'ʃ': 'sh.mp3',
+                'h': 'h.mp3',
+                'tʃ': 'ch.mp3',
+                'b': 'b.mp3',
+                'd': 'd.mp3',
+                'ɡ': 'g.mp3',
+                'v': 'v.mp3',
+                'ð': 'th_voiced.mp3',
+                'z': 'z.mp3',
+                'ʒ': 'zh.mp3',
+                'dʒ': 'j.mp3',
+                'm': 'm.mp3',
+                'n': 'n.mp3',
+                'ŋ': 'ng.mp3',
+                'l': 'l.mp3',
+                'r': 'r.mp3',
+                'w': 'w.mp3',
+                'j': 'y.mp3',
             };
 
             const allPhonemeKeys = Object.keys(phonemeData);
@@ -813,7 +850,7 @@
                 isAnswerLocked: false,
             };
 
-            // ========== 发音系统（有道TTS + Web Speech 回退）==========
+            // ========== 发音系统 ==========
             let _ttsAudio = null;
             let _speechSynth = window.speechSynthesis;
             let _currentUtterance = null;
@@ -876,20 +913,51 @@
                 }, 50);
             }
 
+            // 播放单词
             function speakWord(word, onStart, onEnd) {
                 if (!word) { if (onEnd) onEnd(); return; }
                 speakWithYoudao(word, onStart, onEnd);
             }
 
-            // 发音标本身的音（使用映射文本）
+            // 发音标本身的音（优先本地MP3，回退有道TTS）
             function speakIpaSymbol(phonemeKey, onStart, onEnd) {
-                const text = ipaPronounceMap[phonemeKey];
-                if (text) {
-                    speakWord(text, onStart, onEnd);
-                } else if (onEnd) onEnd();
+                const fileName = ipaAudioMap[phonemeKey];
+                if (fileName) {
+                    const audio = new Audio('sounds/' + fileName);
+                    if (onStart) onStart();
+                    let resolved = false;
+                    const fallbackTimer = setTimeout(() => {
+                        if (!resolved) {
+                            resolved = true;
+                            // 回退到有道TTS（使用映射文本）
+                            const fallbackText = phonemeData[phonemeKey]?.word || phonemeKey;
+                            speakWord(fallbackText, null, onEnd);
+                        }
+                    }, 1200);
+                    audio.onplay = () => { clearTimeout(fallbackTimer); resolved = true; };
+                    audio.onended = () => { clearTimeout(fallbackTimer); resolved = true; if (onEnd) onEnd(); };
+                    audio.onerror = () => {
+                        clearTimeout(fallbackTimer);
+                        if (!resolved) {
+                            resolved = true;
+                            const fallbackText = phonemeData[phonemeKey]?.word || phonemeKey;
+                            speakWord(fallbackText, null, onEnd);
+                        }
+                    };
+                    audio.play().catch(() => {
+                        clearTimeout(fallbackTimer);
+                        if (!resolved) {
+                            resolved = true;
+                            const fallbackText = phonemeData[phonemeKey]?.word || phonemeKey;
+                            speakWord(fallbackText, null, onEnd);
+                        }
+                    });
+                } else {
+                    // 没有映射，直接用示例单词
+                    speakPhonemeExample(phonemeKey, onStart, onEnd);
+                }
             }
 
-            // 自动朗读仍保留示例单词（帮助建立音标-单词联系）
             function speakPhonemeExample(phonemeKey, onStart, onEnd) {
                 const data = phonemeData[phonemeKey];
                 if (!data) { if (onEnd) onEnd(); return; }
@@ -1138,10 +1206,10 @@
                     });
                 }
 
-                // 自动朗读示例单词（建立联系）
+                // 自动朗读音标本身发音（改为音标音，不再是示例单词）
                 setTimeout(() => {
                     if (!state.isAnswerLocked) {
-                        speakPhonemeExample(q.phonemeKey, null, null);
+                        speakIpaSymbol(q.phonemeKey, null, null);
                     }
                 }, 400);
             }
@@ -1258,7 +1326,7 @@
                 updateTopBar(); updateProgress(total,total);
             }
 
-            // ========== 音标表（发音标本身） ==========
+            // ========== 音标表（发音标本音） ==========
             function showPhonemeChart() {
                 playClickSound();
                 const cats = {};
@@ -1329,7 +1397,7 @@
             updateTopBar();
             renderLevelSelect();
             if (_speechSynth) { _speechSynth.getVoices(); _speechSynth.onvoiceschanged = ()=> _speechSynth.getVoices(); }
-            console.log('🎯 英语音标大冒险已就绪（音标发音版）');
+            console.log('🎯 英语音标大冒险已就绪（标准MP3版）');
         })();
     </script>
 </body>
